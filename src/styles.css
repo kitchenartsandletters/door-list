@@ -120,18 +120,19 @@ body {
 .btn-add {
   font: inherit;
   font-weight: 600;
-  font-size: 0.9rem;
-  padding: 0 14px;
-  border: 1.5px solid var(--herb);
-  border-radius: 12px;
-  background: transparent;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  padding: 6px 2px;
+  border: none;
+  background: none;
   color: var(--herb-deep);
   cursor: pointer;
-  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .btn-add:active {
-  background: var(--sage);
+  color: var(--herb);
 }
 
 .add-form {

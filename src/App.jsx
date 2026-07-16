@@ -160,10 +160,10 @@ export default function App() {
             autoCorrect="off"
             spellCheck="false"
           />
-          <button className="btn-add" onClick={() => setAdding((v) => !v)}>
-            {adding ? 'Cancel' : '+ Add guest'}
-          </button>
         </div>
+        <button className="btn-add" onClick={() => setAdding((v) => !v)}>
+          {adding ? 'Cancel' : '+ Add guest'}
+        </button>
         {adding && (
           <form className="add-form" onSubmit={addGuest}>
             <input
