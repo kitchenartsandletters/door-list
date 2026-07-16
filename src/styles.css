@@ -1,0 +1,362 @@
+:root {
+  --paper: #faf7f0;
+  --ink: #202a1e;
+  --ink-soft: #5c6657;
+  --herb: #3d6b44;
+  --herb-deep: #2e5234;
+  --butter: #e9b44c;
+  --sage: #e9efe5;
+  --hairline: #ddd7c9;
+  --card: #ffffff;
+  --danger: #a33d2b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-feature-settings: 'tnum' 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 16px 64px;
+}
+
+/* ---------- Masthead ---------- */
+
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--paper);
+  padding: 20px 0 12px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.masthead-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.event-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.55rem;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.event-sub {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.tally {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 999px;
+  padding: 8px 14px;
+  flex-shrink: 0;
+}
+
+.tally-in {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--butter);
+}
+
+.tally-sep,
+.tally-total {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.tally-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-left: 4px;
+  opacity: 0.7;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.search {
+  flex: 1;
+  font: inherit;
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: 1.5px solid var(--hairline);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--ink);
+}
+
+.search:focus {
+  outline: 2px solid var(--herb);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.btn-add {
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0 14px;
+  border: 1.5px solid var(--herb);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--herb-deep);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-add:active {
+  background: var(--sage);
+}
+
+.add-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.add-name {
+  flex: 1;
+  font: inherit;
+  padding: 10px 12px;
+  border: 1.5px solid var(--hairline);
+  border-radius: 10px;
+}
+
+.add-qty {
+  width: 64px;
+  font: inherit;
+  padding: 10px;
+  border: 1.5px solid var(--hairline);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.btn-save {
+  font: inherit;
+  font-weight: 600;
+  padding: 0 18px;
+  border: none;
+  border-radius: 10px;
+  background: var(--herb);
+  color: #fff;
+  cursor: pointer;
+}
+
+.error-bar {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #f7e5e0;
+  color: var(--danger);
+  font-size: 0.85rem;
+}
+
+/* ---------- Sections ---------- */
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin: 26px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.count-chip {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 999px;
+  padding: 2px 9px;
+}
+
+.chip-done {
+  background: var(--herb);
+}
+
+.done-section {
+  margin-top: 12px;
+}
+
+.empty {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  padding: 18px 4px;
+}
+
+/* ---------- Rows ---------- */
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.row-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: inherit;
+  text-align: left;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1.5px solid var(--hairline);
+  border-radius: 14px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 120ms ease, background 120ms ease;
+  min-height: 56px;
+}
+
+.row-main:not(:disabled):active {
+  border-color: var(--herb);
+  background: var(--sage);
+}
+
+.row-main:focus-visible {
+  outline: 2px solid var(--herb);
+  outline-offset: 2px;
+}
+
+.row-name {
+  flex: 1;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.row-count {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  min-width: 34px;
+  text-align: right;
+}
+
+/* The signature: one pip per ticket */
+.pips {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  max-width: 120px;
+  justify-content: flex-end;
+}
+
+.pip {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--herb);
+  background: transparent;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.pip-filled {
+  background: var(--butter);
+  border-color: var(--butter);
+}
+
+.btn-undo {
+  width: 44px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: 1.5px solid var(--hairline);
+  border-radius: 14px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.btn-undo:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.btn-undo:not(:disabled):active {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+/* Checked-in rows */
+.row-done .row-main {
+  background: var(--sage);
+  border-color: transparent;
+  cursor: default;
+}
+
+.row-done .row-name {
+  color: var(--herb-deep);
+}
+
+.row-done .pip {
+  border-color: var(--herb);
+}
+
+.row-done .pip-filled {
+  background: var(--herb);
+  border-color: var(--herb);
+}
+
+/* ---------- Setup note ---------- */
+
+.setup-note {
+  margin-top: 15vh;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.setup-note h1 {
+  font-family: 'Fraunces', serif;
+  color: var(--ink);
+}
+
+.setup-note code {
+  background: var(--sage);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.85em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
