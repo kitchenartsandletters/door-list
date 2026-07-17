@@ -1,7 +1,7 @@
 {
   "name": "door-list",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.7",
+    "papaparse": "^5.5.3",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "serve": "^14.2.6"
