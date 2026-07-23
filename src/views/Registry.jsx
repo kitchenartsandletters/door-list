@@ -11,7 +11,7 @@ export default function Registry() {
   async function fetchEvents() {
     const { data, error } = await supabase
       .from('events')
-      .select('*, guests(qty, checked_in)')
+      .select('*, guests(qty, checked_in, deleted_at)')
       .order('created_at', { ascending: false })
     if (error) setError(error.message)
     else {
@@ -112,8 +112,9 @@ export default function Registry() {
 }
 
 function EventCard({ ev, archived = false, onArchive, onRestore, onDelete }) {
-  const totalTickets = ev.guests.reduce((s, g) => s + g.qty, 0)
-  const totalIn = ev.guests.reduce((s, g) => s + Math.min(g.checked_in, g.qty), 0)
+  const activeGuests = ev.guests.filter((g) => !g.deleted_at)
+  const totalTickets = activeGuests.reduce((s, g) => s + g.qty, 0)
+  const totalIn = activeGuests.reduce((s, g) => s + Math.min(g.checked_in, g.qty), 0)
 
   return (
     <div className={`card ${archived ? 'card-archived' : ''}`}>
